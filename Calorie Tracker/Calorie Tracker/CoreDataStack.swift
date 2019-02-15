@@ -17,7 +17,7 @@ class CoreDataStack {
     
     private init() {
         
-        container = NSPersistentContainer(name: "Calories")
+        container = NSPersistentContainer(name: "Calorie_Tracker")
         container.loadPersistentStores { (description, error) in
             if let cdLoadError = error { fatalError("Couldn't load from Core Data container: \(cdLoadError)") }
         } //End of container

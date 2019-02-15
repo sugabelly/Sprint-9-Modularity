@@ -67,14 +67,14 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     //Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CalorieManager.shared.fakeData.count
+        return CalorieManager.shared.calories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "fatCell", for: indexPath)
         
-        cell.textLabel?.text = CalorieManager.shared.fakeData[indexPath.row]
+        cell.textLabel?.text = String(CalorieManager.shared.calories[indexPath.row].amount)
         
         return cell
     }
