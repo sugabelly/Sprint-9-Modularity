@@ -18,11 +18,18 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //Declaring the Calorie Chart
     let calorieChart = Chart(frame: CGRect(x: 0, y: 62, width: 375, height: 200))
     let series = CalorieManager.shared.buildChartData()
+    let cmgr = CalorieManager.shared
     
     //Overrides
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        FirebaseManager.shared.getFromFB()
+
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.view.addSubview(calorieChart)
         calorieChart.add(series)
     }
@@ -46,7 +53,6 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         // What happens when they click submit
         let submitEntry = UIAlertAction(title: "Submit", style: .default) { _ in
-            print("Submitted Entry")
             
             guard let entry = Double((alert.textFields?.first?.text)!) else { return }
             
@@ -54,9 +60,11 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
             
             let tempCalorie = Calorie(amount: entry, date: time )
             
-            CalorieManager.shared.newEntry(amount: tempCalorie.amount, date: tempCalorie.date!) //Make a new entry
+            self.cmgr.newEntry(amount: tempCalorie.amount, date: tempCalorie.date!) //Make a new entry
             
             self.tableView.reloadData()
+            
+            print("Submitted Entry")
         }
         
         // Add the actions to the alert
@@ -69,16 +77,23 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     //Table View Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return CalorieManager.shared.calories.count
+        return cmgr.calories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "fatCell", for: indexPath)
         
-        cell.textLabel?.text = String(CalorieManager.shared.calories[indexPath.row].amount)
+        cell.textLabel?.text = String(cmgr.calories[indexPath.row].amount)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            cmgr.deleteEntry(entry: cmgr.calories[indexPath.row])
+        }
     }
     
     //Fetch Results Controller Delegate Methods
