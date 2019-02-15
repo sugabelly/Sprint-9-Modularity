@@ -13,7 +13,20 @@ class CalorieManager {
     
     static let shared = CalorieManager()
     
-    var fakeData = ["hello", "testing", "wow"]
+    var chartData: [Double] = []
+    
+    func buildChartData() -> ChartSeries {
+        
+        for x in calories {
+            
+            chartData.append(x.amount)
+        }
+        
+        let series = ChartSeries(chartData)
+        
+        return series
+    }
+    
     
     
     

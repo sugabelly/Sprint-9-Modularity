@@ -17,7 +17,7 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     //Properties
     //Declaring the Calorie Chart
     let calorieChart = Chart(frame: CGRect(x: 0, y: 62, width: 375, height: 200))
-    let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+    let series = CalorieManager.shared.buildChartData()
     
     //Overrides
     override func viewDidLoad() {
