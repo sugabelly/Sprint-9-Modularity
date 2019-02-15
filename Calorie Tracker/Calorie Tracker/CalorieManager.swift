@@ -35,7 +35,7 @@ class CalorieManager {
         moc.perform {
             let entry = Calorie(amount: amount, date: date)
             if sendtoFB {
-                FirebaseController().sendMovie(movie: newEntry)
+                FirebaseManager.shared.sendtoFB(entry: entry)
             }
             if savetoCD {
                 do {
@@ -46,21 +46,48 @@ class CalorieManager {
     }
 
     
-    //Match data to Calorie Representation
-    func matchToRep(entryRep: CalorieRep, moc: NSManagedObjectContext) throws
-    {
+    //Match data from FB to Calorie Representation
+    func matchToRep(entryRep: CalorieRep, moc: NSManagedObjectContext) throws {
+    
+        var caughtError: Error?
+        
         moc.perform {
-
-            let entry: Calorie? = Calorie(amount: entryRep.amount, date: entryRep.date, context: moc)
+            
+            let req: NSFetchRequest<Calorie> = Calorie.fetchRequest()
+    
+            req.predicate = NSPredicate(format: "id = %@", entryRep.id as NSUUID)
+            
+            var entry: Calorie?
+            
+            do {
+                
+                entry = try moc.fetch(req).first //Find the first entry with that ID
+            
+            } catch {
+    
+                caughtError = error
             }
+    
+            if let foundEntry = entry { //If there's an entry with that ID...
+    
+                foundEntry.assignEntry(tempEntry: entryRep) //Match it up.
+    
+            } else { _ = Calorie(amount: entryRep.amount, date: entryRep.date, id: entryRep.id, context: moc) //Else create a new entry
+    
+            }
+    
         }
     
-    }
+        if let caughtError = caughtError {
+    
+            throw caughtError
+    
+        }
+    }//End of Matching Func
     
     
     //Delete Calorie Entry
-    func deleteEntry(entry: Calorie, index: IndexPath, _ completion:@escaping Completions = Empties)
-    {
+    func deleteEntry(entry: Calorie, index: IndexPath, _ completion:@escaping Completions = Empties) {
         let stub = entry.getEntry() //Get a reference of the entry on Firebase
         
         guard let moc = entry.managedObjectContext else { return }
@@ -82,7 +109,7 @@ class CalorieManager {
         
         URLSession.shared.dataTask(with: deleteRequest) { (_, _, error) in
             if let error = error {
-                showErrors(completion, "Error deleting: \(error)")
+                self.showErrors(completion, "Error deleting: \(error)")
                 return
             }
             
@@ -92,14 +119,15 @@ class CalorieManager {
     }
     
     //Report Errors
-    func showErrors(_ completion: @escaping Completions, _ error: String)
-    {
+    func showErrors(_ completion: @escaping Completions, _ error: String) {
         NSLog(error)
         completion(error)
     }
+    
+}//End of class
 
 //Type Alias for pretty completion handling
 typealias Completions = (String?) -> Void
 let Empties: Completions = {_ in}
 
-        
+

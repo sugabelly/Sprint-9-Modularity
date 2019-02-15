@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import Foundation
+import CoreData
 
-class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     //Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -27,8 +27,6 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
         calorieChart.add(series)
     }
     
-    
-    
     //Add Calories Button
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
         
@@ -38,7 +36,6 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
         // Add a textfield to the alert to take the entry
         alert.addTextField { textField in
             textField.placeholder = "Number of Calories"
-            textField.
             textField.textAlignment = .center
         }
         
@@ -53,11 +50,11 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
             
             guard let entry = Double((alert.textFields?.first?.text)!) else { return }
             
-            let time = Date()
+            let time = Date() //Grab the current date and time
             
             let tempCalorie = Calorie(amount: entry, date: time )
             
-            CalorieManager.shared.calories.append(tempCalorie)
+            CalorieManager.shared.newEntry(amount: tempCalorie.amount, date: tempCalorie.date!) //Make a new entry
         }
         
         // Add the actions to the alert
@@ -85,5 +82,24 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
     //Fetch Results Controller Delegate Methods
 
     
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
+        switch type {
+        case .insert: tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete: tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .update: tableView.reloadRows(at: [indexPath!], with: .automatic)
+        case .move: tableView.deleteRows(at: [indexPath!], with: .automatic)
+        tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        }
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+
     
 }
