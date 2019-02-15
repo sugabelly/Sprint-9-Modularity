@@ -16,6 +16,7 @@
 		4CFF7C0322172373002CEADC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0022172373002CEADC /* ChartColors.swift */; };
 		4CFF7C0422172373002CEADC /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0122172373002CEADC /* ChartSeries.swift */; };
 		4CFF7C0522172373002CEADC /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0222172373002CEADC /* Chart.swift */; };
+		4CFF7C0822172E5F002CEADC /* CalorieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0722172E5F002CEADC /* CalorieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4CFF7C0022172373002CEADC /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
 		4CFF7C0122172373002CEADC /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
 		4CFF7C0222172373002CEADC /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		4CFF7C0722172E5F002CEADC /* CalorieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				4CFF7C062217237B002CEADC /* SwiftChart */,
 				4CFF7BEB221722E7002CEADC /* AppDelegate.swift */,
 				4CFF7BED221722E7002CEADC /* ViewController.swift */,
+				4CFF7C0722172E5F002CEADC /* CalorieManager.swift */,
 				4CFF7BEF221722E7002CEADC /* Main.storyboard */,
 				4CFF7BF5221722E8002CEADC /* Assets.xcassets */,
 				4CFF7BF7221722E8002CEADC /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFF7C0322172373002CEADC /* ChartColors.swift in Sources */,
+				4CFF7C0822172E5F002CEADC /* CalorieManager.swift in Sources */,
 				4CFF7BEE221722E7002CEADC /* ViewController.swift in Sources */,
 				4CFF7C0522172373002CEADC /* Chart.swift in Sources */,
 				4CFF7C0422172373002CEADC /* ChartSeries.swift in Sources */,

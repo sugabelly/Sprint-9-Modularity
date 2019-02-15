@@ -59,24 +59,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjE-Gh-vqS">
-                                <rect key="frame" x="0.0" y="62" width="375" height="205"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="205" id="kBy-ic-BBd"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6YJ-rN-8AY" secondAttribute="trailing" id="1Ex-hr-wKY"/>
-                            <constraint firstItem="SjE-Gh-vqS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2Ys-Pt-4U4"/>
                             <constraint firstItem="Mgs-Kl-K00" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZvB-4y-xUs"/>
                             <constraint firstItem="6YJ-rN-8AY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mDQ-cM-cSy"/>
-                            <constraint firstItem="SjE-Gh-vqS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="pq6-6f-ggz"/>
-                            <constraint firstItem="SjE-Gh-vqS" firstAttribute="top" secondItem="Mgs-Kl-K00" secondAttribute="bottom" constant="-2" id="pxy-fT-2Z0"/>
-                            <constraint firstItem="6YJ-rN-8AY" firstAttribute="top" secondItem="SjE-Gh-vqS" secondAttribute="top" id="rgK-zH-9ad"/>
-                            <constraint firstItem="SjE-Gh-vqS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tFS-G9-f3c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgs-Kl-K00" secondAttribute="trailing" id="xYs-TY-zDZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
