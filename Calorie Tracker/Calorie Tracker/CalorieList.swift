@@ -55,6 +55,8 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
             let tempCalorie = Calorie(amount: entry, date: time )
             
             CalorieManager.shared.newEntry(amount: tempCalorie.amount, date: tempCalorie.date!) //Make a new entry
+            
+            self.tableView.reloadData()
         }
         
         // Add the actions to the alert
