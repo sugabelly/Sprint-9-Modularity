@@ -13,6 +13,9 @@
 		4CFF7BF4221722E7002CEADC /* Calorie_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7BF2221722E7002CEADC /* Calorie_Tracker.xcdatamodeld */; };
 		4CFF7BF6221722E8002CEADC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF7BF5221722E8002CEADC /* Assets.xcassets */; };
 		4CFF7BF9221722E8002CEADC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF7BF7221722E8002CEADC /* LaunchScreen.storyboard */; };
+		4CFF7C0322172373002CEADC /* ChartColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0022172373002CEADC /* ChartColors.swift */; };
+		4CFF7C0422172373002CEADC /* ChartSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0122172373002CEADC /* ChartSeries.swift */; };
+		4CFF7C0522172373002CEADC /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0222172373002CEADC /* Chart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		4CFF7BF5221722E8002CEADC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CFF7BF8221722E8002CEADC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CFF7BFA221722E8002CEADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFF7C0022172373002CEADC /* ChartColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartColors.swift; sourceTree = "<group>"; };
+		4CFF7C0122172373002CEADC /* ChartSeries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSeries.swift; sourceTree = "<group>"; };
+		4CFF7C0222172373002CEADC /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 		4CFF7BEA221722E7002CEADC /* Calorie Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				4CFF7C062217237B002CEADC /* SwiftChart */,
 				4CFF7BEB221722E7002CEADC /* AppDelegate.swift */,
 				4CFF7BED221722E7002CEADC /* ViewController.swift */,
 				4CFF7BEF221722E7002CEADC /* Main.storyboard */,
@@ -65,6 +72,16 @@
 				4CFF7BF2221722E7002CEADC /* Calorie_Tracker.xcdatamodeld */,
 			);
 			path = "Calorie Tracker";
+			sourceTree = "<group>";
+		};
+		4CFF7C062217237B002CEADC /* SwiftChart */ = {
+			isa = PBXGroup;
+			children = (
+				4CFF7C0222172373002CEADC /* Chart.swift */,
+				4CFF7C0022172373002CEADC /* ChartColors.swift */,
+				4CFF7C0122172373002CEADC /* ChartSeries.swift */,
+			);
+			path = SwiftChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFF7C0322172373002CEADC /* ChartColors.swift in Sources */,
 				4CFF7BEE221722E7002CEADC /* ViewController.swift in Sources */,
+				4CFF7C0522172373002CEADC /* Chart.swift in Sources */,
+				4CFF7C0422172373002CEADC /* ChartSeries.swift in Sources */,
 				4CFF7BF4221722E7002CEADC /* Calorie_Tracker.xcdatamodeld in Sources */,
 				4CFF7BEC221722E7002CEADC /* AppDelegate.swift in Sources */,
 			);
