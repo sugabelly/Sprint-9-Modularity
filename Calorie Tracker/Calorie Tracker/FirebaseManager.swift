@@ -17,7 +17,7 @@ class FirebaseManager {
     private let firebaseURL = URL(string: "https://calorie-tracker-211cb.firebaseio.com/")!
     
     //Put new Calorie entry on FB
-    func sendtoFB(entry:Calorie, _ completion: @escaping Completions = Empties)
+    func sendtoFB(entry: Calorie, _ completion: @escaping Completions = Empties)
     {
         var data: Data?
         

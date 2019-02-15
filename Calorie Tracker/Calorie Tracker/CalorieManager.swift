@@ -43,20 +43,20 @@ class CalorieManager {
     //Core Data CRUD
     
     //Create a new Calorie entry
-    func newEntry(amount: Double, date: Date, sendtoFB: Bool = true, savetoCD: Bool = true, moc: NSManagedObjectContext = CoreDataStack.shared.mainContext)
+    func newEntry(amount: Double, date: Date, moc: NSManagedObjectContext = CoreDataStack.shared.mainContext)
     {
         moc.perform {
+            
             let entry = Calorie(amount: amount, date: date)
-            if sendtoFB {
-                FirebaseManager.shared.sendtoFB(entry: entry)
-            }
-            if savetoCD {
-                do {
-                    try moc.save()
-                } catch { NSLog("Failed to save while creating a new movie") }
+            
+            FirebaseManager.shared.sendtoFB(entry: entry)
+            
+            do { try moc.save()
+                    
+            } catch { NSLog("Failed to save while creating a new entry") }
+            
             }
         }
-    }
 
     
     //Match data from FB to Calorie Representation
@@ -100,7 +100,7 @@ class CalorieManager {
     
     
     //Delete Calorie Entry
-    func deleteEntry(entry: Calorie, index: IndexPath, _ completion:@escaping Completions = Empties) {
+    func deleteEntry(entry: Calorie, _ completion:@escaping Completions = Empties) {
         let stub = entry.getEntry() //Get a reference of the entry on Firebase
         
         guard let moc = entry.managedObjectContext else { return }
