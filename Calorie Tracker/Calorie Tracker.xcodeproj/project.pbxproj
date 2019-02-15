@@ -20,6 +20,7 @@
 		4CFF7C0C22173386002CEADC /* CalorieRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0B22173386002CEADC /* CalorieRepresentation.swift */; };
 		4CFF7C102217366E002CEADC /* CalorieConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C0F2217366E002CEADC /* CalorieConvenience.swift */; };
 		4CFF7C1222173F84002CEADC /* CalorieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C1122173F84002CEADC /* CalorieList.swift */; };
+		4CFF7C1422175078002CEADC /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7C1322175078002CEADC /* FirebaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4CFF7C0B22173386002CEADC /* CalorieRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieRepresentation.swift; sourceTree = "<group>"; };
 		4CFF7C0F2217366E002CEADC /* CalorieConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieConvenience.swift; sourceTree = "<group>"; };
 		4CFF7C1122173F84002CEADC /* CalorieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieList.swift; sourceTree = "<group>"; };
+		4CFF7C1322175078002CEADC /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				4CFF7C1122173F84002CEADC /* CalorieList.swift */,
 				4CFF7C0922173373002CEADC /* CoreDataStack.swift */,
 				4CFF7C0722172E5F002CEADC /* CalorieManager.swift */,
+				4CFF7C1322175078002CEADC /* FirebaseManager.swift */,
 				4CFF7C0D22173397002CEADC /* Models */,
 				4CFF7C0E221733C1002CEADC /* Storyboards */,
 				4CFF7C062217237B002CEADC /* SwiftChart */,
@@ -187,6 +190,7 @@
 				4CFF7C0822172E5F002CEADC /* CalorieManager.swift in Sources */,
 				4CFF7C102217366E002CEADC /* CalorieConvenience.swift in Sources */,
 				4CFF7C0522172373002CEADC /* Chart.swift in Sources */,
+				4CFF7C1422175078002CEADC /* FirebaseManager.swift in Sources */,
 				4CFF7C0422172373002CEADC /* ChartSeries.swift in Sources */,
 				4CFF7BF4221722E7002CEADC /* Calorie_Tracker.xcdatamodeld in Sources */,
 				4CFF7BEC221722E7002CEADC /* AppDelegate.swift in Sources */,

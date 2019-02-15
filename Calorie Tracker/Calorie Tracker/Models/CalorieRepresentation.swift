@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct CalorieRep {
+struct CalorieRep: Equatable, Codable {
     var amount: Double
     var date: Date
+    let id: UUID
 }

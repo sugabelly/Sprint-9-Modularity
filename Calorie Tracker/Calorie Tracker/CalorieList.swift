@@ -38,6 +38,7 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
         // Add a textfield to the alert to take the entry
         alert.addTextField { textField in
             textField.placeholder = "Number of Calories"
+            textField.
             textField.textAlignment = .center
         }
         
@@ -49,6 +50,14 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
         // What happens when they click submit
         let submitEntry = UIAlertAction(title: "Submit", style: .default) { _ in
             print("Submitted Entry")
+            
+            guard let entry = Double((alert.textFields?.first?.text)!) else { return }
+            
+            let time = Date()
+            
+            let tempCalorie = Calorie(amount: entry, date: time )
+            
+            CalorieManager.shared.calories.append(tempCalorie)
         }
         
         // Add the actions to the alert
