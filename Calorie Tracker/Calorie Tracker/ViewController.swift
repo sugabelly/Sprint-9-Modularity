@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
 
-    
-    {
-        var alert = UIAlertController(title: "abc", message: "def", preferredStyle: .alert)
+    @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "abc", message: "def", preferredStyle: .alert)
+        
+        
         self.present(alert, animated: true, completion: nil)
     }
 

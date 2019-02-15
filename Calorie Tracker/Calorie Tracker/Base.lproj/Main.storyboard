@@ -48,7 +48,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <items>
                                             <navigationItem title="Title" id="IOe-Iq-K5x">
-                                                <barButtonItem key="rightBarButtonItem" systemItem="add" id="5jx-kF-Hmr"/>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="add" id="5jx-kF-Hmr">
+                                                    <connections>
+                                                        <action selector="addButtonClicked:" destination="BYZ-38-t0r" id="bMW-WM-6wp"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
