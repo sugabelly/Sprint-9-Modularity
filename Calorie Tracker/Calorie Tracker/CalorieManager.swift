@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
 class CalorieManager {
     
-    func trying() {
+    static let shared = CalorieManager()
+    
+    var fakeData = ["hello", "testing", "wow"]
+    
+    var calories: [Calorie] {
         
-        //x 0, y 62, width 375, height 205
+        let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
         
+        //Return an array of Calories or an empty array if it fails
+        let results = (try? CoreDataStack.shared.mainContext.fetch(fetchRequest)) ?? []
+        
+        return results //This will be what enters calories array.
     }
-    
-    
+        
 }
