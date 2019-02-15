@@ -31,8 +31,31 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     //Add Calories Button
     @IBAction func addButtonClicked(_ sender: UIBarButtonItem) {
+        
+        //Show a popup alert
         let alert = UIAlertController(title: "Add Calorie Intake", message: "Enter the amount of Calories in the field", preferredStyle: .alert)
         
+        // Add a textfield to the alert to take the entry
+        alert.addTextField { textField in
+            textField.placeholder = "Number of Calories"
+            textField.textAlignment = .center
+        }
+        
+        // What happens when they click cancel
+        let cancelEntry = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            print("Cancelled")
+        }
+        
+        // What happens when they click submit
+        let submitEntry = UIAlertAction(title: "Submit", style: .default) { _ in
+            print("Submitted Entry")
+        }
+        
+        // Add the actions to the alert
+        alert.addAction(cancelEntry)
+        alert.addAction(submitEntry)
+        
+        //Present the alert to the user
         self.present(alert, animated: true, completion: nil)
     }
     
