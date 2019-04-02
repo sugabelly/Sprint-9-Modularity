@@ -62,6 +62,7 @@ class FirebaseManager {
                 }
                 try CoreDataStack.saveAfterMerging(moc:moc)
                 completion(nil)
+                
             } catch {
                 self.showErrors(completion, "Couldn't decode data: \(error)")
             }

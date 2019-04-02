@@ -42,8 +42,8 @@ class CoreDataStack {
             }
         } //End of Perform and Wait
         
-        if let SAMerror = theError { //Unwrap the error
-            throw SAMerror //Report the error
+        if let savingError = theError { //Unwrap the error
+            throw savingError //Report the error
         }
     }
     

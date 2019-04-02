@@ -13,8 +13,9 @@ class CalorieManager {
     
     static let shared = CalorieManager()
     
-    var chartData: [Double] = []
+    var chartData: [Double] = [] //Stores the calorie data to build the chart
     
+    //Fills the array based on entered calories.
     func buildChartData() -> ChartSeries {
         
         for x in calories {
@@ -23,13 +24,11 @@ class CalorieManager {
         }
         
         let series = ChartSeries(chartData)
-        
+                
         return series
     }
     
-    
-    
-    
+    //NSFetchedResultsContainer
     var calories: [Calorie] {
         
         let fetchRequest: NSFetchRequest<Calorie> = Calorie.fetchRequest()
@@ -43,7 +42,7 @@ class CalorieManager {
     //Core Data CRUD
     
     //Create a new Calorie entry
-    func newEntry(amount: Double, date: Date, moc: NSManagedObjectContext = CoreDataStack.shared.mainContext)
+    func newEntry(amount: Double, date: Date, moc: NSManagedObjectContext = CoreDataStack.shared.mainContext) //Set the context to the one already in use.
     {
         moc.perform {
             
@@ -68,13 +67,14 @@ class CalorieManager {
             
             let req: NSFetchRequest<Calorie> = Calorie.fetchRequest()
     
-            req.predicate = NSPredicate(format: "id = %@", entryRep.id as NSUUID)
+            req.predicate = NSPredicate(format: "id == %@", entryRep.id as NSUUID)
             
             var entry: Calorie?
             
             do {
                 
                 entry = try moc.fetch(req).first //Find the first entry with that ID
+                print(entry?.amount)
             
             } catch {
     
@@ -87,7 +87,7 @@ class CalorieManager {
     
             } else { _ = Calorie(amount: entryRep.amount, date: entryRep.date, id: entryRep.id, context: moc) //Else create a new entry
     
-            }
+            } 
     
         }
     

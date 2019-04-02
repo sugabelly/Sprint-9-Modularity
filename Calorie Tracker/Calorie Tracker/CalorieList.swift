@@ -16,22 +16,17 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     //Properties
     //Declaring the Calorie Chart
-    let calorieChart = Chart(frame: CGRect(x: 0, y: 62, width: 375, height: 200))
+    let calorieChart = Chart(frame: CGRect(x: 0, y: 142, width: 375, height: 200))
     let series = CalorieManager.shared.buildChartData()
     let cmgr = CalorieManager.shared
     
     //Overrides
     override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.reloadData()
         FirebaseManager.shared.getFromFB()
-
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         self.view.addSubview(calorieChart)
         calorieChart.add(series)
+        tableView.reloadData()
+        
     }
     
     //Add Calories Button
@@ -96,11 +91,21 @@ class CalorieList: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+    
     //Fetch Results Controller Delegate Methods
 
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
+    }
+    
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
